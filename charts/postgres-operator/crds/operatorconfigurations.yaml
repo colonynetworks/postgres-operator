@@ -14,27 +14,27 @@ spec:
     plural: operatorconfigurations
     singular: operatorconfiguration
     shortNames:
-    - opconfig
+      - opconfig
   additionalPrinterColumns:
-  - name: Image
-    type: string
-    description: Spilo image to be used for Pods
-    JSONPath: .configuration.docker_image
-  - name: Cluster-Label
-    type: string
-    description: Label for K8s resources created by operator
-    JSONPath: .configuration.kubernetes.cluster_name_label
-  - name: Service-Account
-    type: string
-    description: Name of service account to be used
-    JSONPath: .configuration.kubernetes.pod_service_account_name
-  - name: Min-Instances
-    type: integer
-    description: Minimum number of instances per Postgres cluster
-    JSONPath: .configuration.min_instances
-  - name: Age
-    type: date
-    JSONPath: .metadata.creationTimestamp
+    - name: Image
+      type: string
+      description: Spilo image to be used for Pods
+      JSONPath: .configuration.docker_image
+    - name: Cluster-Label
+      type: string
+      description: Label for K8s resources created by operator
+      JSONPath: .configuration.kubernetes.cluster_name_label
+    - name: Service-Account
+      type: string
+      description: Name of service account to be used
+      JSONPath: .configuration.kubernetes.pod_service_account_name
+    - name: Min-Instances
+      type: integer
+      description: Minimum number of instances per Postgres cluster
+      JSONPath: .configuration.min_instances
+    - name: Age
+      type: date
+      JSONPath: .metadata.creationTimestamp
   scope: Namespaced
   subresources:
     status: {}
@@ -68,10 +68,10 @@ spec:
               type: string
             max_instances:
               type: integer
-              minimum: -1  # -1 = disabled
+            #   minimum: -1  # -1 = disabled
             min_instances:
               type: integer
-              minimum: -1  # -1 = disabled
+            #   minimum: -1  # -1 = disabled
             resync_period:
               type: string
             repair_period:
@@ -84,14 +84,14 @@ spec:
                 type: string
             workers:
               type: integer
-              minimum: 1
+              # minimum: 1
             users:
               type: object
               properties:
                 replication_username:
-                   type: string
+                  type: string
                 super_username:
-                   type: string
+                  type: string
             kubernetes:
               type: object
               properties:

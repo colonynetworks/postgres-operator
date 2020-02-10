@@ -14,39 +14,39 @@ spec:
     plural: postgresqls
     singular: postgresql
     shortNames:
-    - pg
+      - pg
   additionalPrinterColumns:
-  - name: Team
-    type: string
-    description: Team responsible for Postgres CLuster
-    JSONPath: .spec.teamId
-  - name: Version
-    type: string
-    description: PostgreSQL version
-    JSONPath: .spec.postgresql.version
-  - name: Pods
-    type: integer
-    description: Number of Pods per Postgres cluster
-    JSONPath: .spec.numberOfInstances
-  - name: Volume
-    type: string
-    description: Size of the bound volume
-    JSONPath: .spec.volume.size
-  - name: CPU-Request
-    type: string
-    description: Requested CPU for Postgres containers
-    JSONPath: .spec.resources.requests.cpu
-  - name: Memory-Request
-    type: string
-    description: Requested memory for Postgres containers
-    JSONPath: .spec.resources.requests.memory
-  - name: Age
-    type: date
-    JSONPath: .metadata.creationTimestamp
-  - name: Status
-    type: string
-    description: Current sync status of postgresql resource
-    JSONPath: .status.PostgresClusterStatus
+    - name: Team
+      type: string
+      description: Team responsible for Postgres CLuster
+      JSONPath: .spec.teamId
+    - name: Version
+      type: string
+      description: PostgreSQL version
+      JSONPath: .spec.postgresql.version
+    - name: Pods
+      type: integer
+      description: Number of Pods per Postgres cluster
+      JSONPath: .spec.numberOfInstances
+    - name: Volume
+      type: string
+      description: Size of the bound volume
+      JSONPath: .spec.volume.size
+    - name: CPU-Request
+      type: string
+      description: Requested CPU for Postgres containers
+      JSONPath: .spec.resources.requests.cpu
+    - name: Memory-Request
+      type: string
+      description: Requested memory for Postgres containers
+      JSONPath: .spec.resources.requests.memory
+    - name: Age
+      type: date
+      JSONPath: .metadata.creationTimestamp
+    - name: Status
+      type: string
+      description: Current sync status of postgresql resource
+      JSONPath: .status.PostgresClusterStatus
   scope: Namespaced
   subresources:
     status: {}
@@ -121,7 +121,7 @@ spec:
               type: boolean
             enableShmVolume:
               type: boolean
-            init_containers:  # deprecated
+            init_containers: # deprecated
               type: array
               nullable: true
               items:
@@ -143,7 +143,7 @@ spec:
                 pattern: '^\ *((Mon|Tue|Wed|Thu|Fri|Sat|Sun):(2[0-3]|[01]?\d):([0-5]?\d)|(2[0-3]|[01]?\d):([0-5]?\d))-((Mon|Tue|Wed|Thu|Fri|Sat|Sun):(2[0-3]|[01]?\d):([0-5]?\d)|(2[0-3]|[01]?\d):([0-5]?\d))\ *$'
             numberOfInstances:
               type: integer
-              minimum: 0
+              # minimum: 0
             patroni:
               type: object
               properties:
@@ -173,7 +173,7 @@ spec:
               type: object
               additionalProperties:
                 type: string
-            pod_priority_class_name:  # deprecated
+            pod_priority_class_name: # deprecated
               type: string
             podPriorityClassName:
               type: string
@@ -196,7 +196,7 @@ spec:
                   type: object
                   additionalProperties:
                     type: string
-            replicaLoadBalancer:  # deprecated
+            replicaLoadBalancer: # deprecated
               type: boolean
             resources:
               type: object
@@ -313,7 +313,7 @@ spec:
                       - PreferNoSchedule
                   tolerationSeconds:
                     type: integer
-            useLoadBalancer:  # deprecated
+            useLoadBalancer: # deprecated
               type: boolean
             users:
               type: object
@@ -324,34 +324,34 @@ spec:
                 items:
                   type: string
                   enum:
-                  - bypassrls
-                  - BYPASSRLS
-                  - nobypassrls
-                  - NOBYPASSRLS
-                  - createdb
-                  - CREATEDB
-                  - nocreatedb
-                  - NOCREATEDB
-                  - createrole
-                  - CREATEROLE
-                  - nocreaterole
-                  - NOCREATEROLE
-                  - inherit
-                  - INHERIT
-                  - noinherit
-                  - NOINHERIT
-                  - login
-                  - LOGIN
-                  - nologin
-                  - NOLOGIN
-                  - replication
-                  - REPLICATION
-                  - noreplication
-                  - NOREPLICATION
-                  - superuser
-                  - SUPERUSER
-                  - nosuperuser
-                  - NOSUPERUSER
+                    - bypassrls
+                    - BYPASSRLS
+                    - nobypassrls
+                    - NOBYPASSRLS
+                    - createdb
+                    - CREATEDB
+                    - nocreatedb
+                    - NOCREATEDB
+                    - createrole
+                    - CREATEROLE
+                    - nocreaterole
+                    - NOCREATEROLE
+                    - inherit
+                    - INHERIT
+                    - noinherit
+                    - NOINHERIT
+                    - login
+                    - LOGIN
+                    - nologin
+                    - NOLOGIN
+                    - replication
+                    - REPLICATION
+                    - noreplication
+                    - NOREPLICATION
+                    - superuser
+                    - SUPERUSER
+                    - nosuperuser
+                    - NOSUPERUSER
             volume:
               type: object
               required:
